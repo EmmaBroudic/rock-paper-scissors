@@ -1,5 +1,7 @@
 <script>
-  import Button from './Button.svelte'
+  import Counter from '../components/Counter.svelte'
+  import Button from '../components/Button.svelte'
+  import './page.css'
 </script>
 
 <body>
@@ -10,19 +12,19 @@
     <div id="button-bloc">
 
         <div class="button">
-            <Button />
+            <Counter />
         </div>
 
         <div class="button">
-            <button>Rock</button>
+            <Button element = "Rock"/>
         </div>
 
         <div class="button">
-            <button>Paper</button>
+            <Button element = "Paper"/>
         </div>
 
         <div class="button">
-            <button>Scissors</button>
+            <Button element = "Scissors"/>
         </div>
     </div>
 
