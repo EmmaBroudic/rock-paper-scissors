@@ -1,6 +1,6 @@
 <script>
   import Counter from '../components/Counter.svelte'
-  import Button from '../components/Button.svelte'
+  import ButtonsBloc from '../components/ButtonsBloc.svelte'
   import './page.css'
 </script>
 
@@ -9,23 +9,11 @@
     <h1>Rock, paper, scissors</h1>
     <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
-    <div id="button-bloc">
-
+    <div id="buttons">
         <div class="button">
             <Counter />
         </div>
-
-        <div class="button">
-            <Button element = "Rock"/>
-        </div>
-
-        <div class="button">
-            <Button element = "Paper"/>
-        </div>
-
-        <div class="button">
-            <Button element = "Scissors"/>
-        </div>
+        <ButtonsBloc />
     </div>
 
 </body>
