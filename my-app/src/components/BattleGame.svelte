@@ -1,6 +1,5 @@
 <script lang="ts">
     import { keepSelectedElements } from '../lib/keepSelectedElements';
-
     let myData = keepSelectedElements;
 </script>
 
@@ -10,6 +9,7 @@
         <button>{item.selectByUser}</button>
         <button>{item.chosenByComputer}</button>
         <p>{item.result}</p>
-        <p>Play again</p>
     {/each}
+    
+    <button>Play again</button>
 </div>

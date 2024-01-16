@@ -1,18 +1,15 @@
-<script>
+<!--<script>
     import { Router, Link, Route } from "svelte-routing";
-    import Home from './home.svelte';
-    import Battle from './battle.svelte';
-  
+    import Home from "./routes/+page.svelte";
+ 
     export let url = "";
-</script>
+  </script>
   
 <Router {url}>
     <nav>
         <Link to="/">Home</Link>
-        <Link to="/battle">Battle</Link>
     </nav>
     <div>
         <Route path="/"><Home /></Route>
-        <Route path="/battle"><Battle /></Route>
     </div>
-</Router>
+</Router>-->
