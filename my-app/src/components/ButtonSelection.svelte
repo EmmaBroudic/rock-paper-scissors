@@ -2,6 +2,7 @@
   import { computerPickElement } from '../lib/utils';
   import { battleGame } from '$lib/battleGame';
   import { keepSelectedElements } from '$lib/keepSelectedElements';
+  import { Link } from "svelte-routing";
     //import { Redirect_1 } from '@sveltejs/kit';
 
   let selectByUser = "test";
@@ -14,20 +15,16 @@
     
     chosenByComputer = computerPickElement();
     console.log("computer : ", chosenByComputer);
-    //;
-    
-    const buttonsSelectDom = document.getElementById('buttons-select');
-    buttonsSelectDom.style.display = 'none';
-    const buttonsGameDom = document.getElementById('buttons-game');
-    buttonsGameDom.style.display = 'flex';
 
     let data = { id: 1, selectByUser: selectByUser, chosenByComputer: chosenByComputer, result: battleGame(selectByUser, chosenByComputer) };
 
     // Utilisez la méthode `update` pour mettre à jour le store
     keepSelectedElements.update((prevData) => [...prevData, data])
+
+    // basculer sur une autre page
   }
 </script>
 
-<button on:click={() => selectedElements()}>
-  {element}
-</button>
+
+  <!--<a href="battle" target="_blank">{element}</a>-->
+  <Link to="battle"><button on:click={() => selectedElements()}>{element}</button></Link>

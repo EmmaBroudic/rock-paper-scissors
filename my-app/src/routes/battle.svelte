@@ -1,6 +1,6 @@
 <script lang="ts">
     //import ButtonsSelectionBloc from '../components/ButtonsSelectionBloc.svelte'
-    //import BattleGame from '../components/BattleGame.svelte'
+    import BattleGame from '../components/BattleGame.svelte'
     import './page.css'
 </script>
 
@@ -10,7 +10,7 @@
     <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
     
     <div id="buttons-game">
-        <p>Test</p>
+        <BattleGame />
     </div>
     
 </body>
