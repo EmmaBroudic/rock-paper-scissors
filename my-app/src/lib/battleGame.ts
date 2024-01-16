@@ -1,4 +1,4 @@
-export function battleGame(userSelectedElement: string, computerSelectedElement: string): string {
+export function battleGame(userSelectedElement: any, computerSelectedElement: any): string {
     let result: string = "test";
 
     if (userSelectedElement === computerSelectedElement) {

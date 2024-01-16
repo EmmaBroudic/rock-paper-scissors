@@ -1,5 +1,5 @@
-<script>
-    import { random } from '../lib/utils.ts';
+<script lang="ts">
+    import { random } from '../lib/utils';
 
     let selectByComputer = ["rock", "paper", "scissors"];
     let randomNumber;
