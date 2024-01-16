@@ -1,13 +1,13 @@
-export function battleGame(userSelectedElement: any, computerSelectedElement: any): string {
-    let result: string = "";
+export function battleGame(userSelectedElement: any, computerSelectedElement: any): number {
+    let result: number = 0;
 
     if (userSelectedElement === computerSelectedElement) {
-        result = "match nul";
+        result += 0;
     }
     else if ((userSelectedElement === "Paper" && computerSelectedElement === "Rock") || (userSelectedElement === "Rock" && computerSelectedElement === "Scissors") || (userSelectedElement === "Scissors" && computerSelectedElement === "Paper")) {
-        result = "user gagne";
+        result += 1;
     } else {
-        result = "user perd";
+        result -= 1;
     }
 
     console.log(result)

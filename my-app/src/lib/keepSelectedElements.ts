@@ -4,6 +4,7 @@ interface MyDataItem {
     id: number;
     selectByUser: string;
     chosenByComputer: string;
+    result: number;
 }
 
 // Exportez directement le store, pas une fonction
