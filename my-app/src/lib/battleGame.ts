@@ -1,14 +1,16 @@
 export function battleGame(userSelectedElement: any, computerSelectedElement: any): string {
-    let result: string = "test";
+    let result: string = "";
 
     if (userSelectedElement === computerSelectedElement) {
-        console.log("match nul");
+        result = "match nul";
     }
     else if ((userSelectedElement === "Paper" && computerSelectedElement === "Rock") || (userSelectedElement === "Rock" && computerSelectedElement === "Scissors") || (userSelectedElement === "Scissors" && computerSelectedElement === "Paper")) {
-        console.log("user gagne");
+        result = "user gagne";
     } else {
-        console.log("user perd");
+        result = "user perd";
     }
+
+    console.log(result)
 
     return result;
 }

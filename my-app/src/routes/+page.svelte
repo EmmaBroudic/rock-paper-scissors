@@ -2,7 +2,6 @@
   import ButtonsSelectionBloc from '../components/ButtonsSelectionBloc.svelte'
   import BattleGame from '../components/BattleGame.svelte'
   import './page.css'
-    import BookDetail from '../components/BookDetail.svelte';
 </script>
 
 <style>
@@ -19,8 +18,6 @@
     <div id="buttons-select">
         <ButtonsSelectionBloc />
     </div>
-
-    <BookDetail />
     <div id="buttons-game">
         <BattleGame />
     </div>

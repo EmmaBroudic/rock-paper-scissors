@@ -1,8 +1,16 @@
 <script lang="ts">
-    /*import { selectByUser, chosenByComputer } from './ButtonSelection.svelte';
+    import { keepSelectedElements } from '../lib/keepSelectedElements';
 
-    $: console.log($selectByUser);
-    $: console.log($chosenByComputer);*/
+    // Utilisez le store dans votre composant
+    let myData = keepSelectedElements;
+
+
 </script>
-  
-<p>User selection:</p>
+
+<div>
+    <h1>Battle Game</h1>
+    {#each $myData as item (item.id)}
+        <button>{item.selectByUser}</button>
+        <button>{item.chosenByComputer}</button>
+    {/each}
+</div>

@@ -1,31 +1,33 @@
 <script lang="ts">
-  import { random } from '../lib/utils';
-  import { writable } from 'svelte/store';
+  import { computerPickElement } from '../lib/utils';
+  //import { battleGame } from '$lib/battleGame';
+  import { keepSelectedElements } from '$lib/keepSelectedElements';
+    //import { Redirect_1 } from '@sveltejs/kit';
 
+  let selectByUser = "test";
+  let chosenByComputer: string;
   export let element: string;
 
-  export let selectByUser = writable("");
-  let selection = ["Rock", "Paper", "Scissors"];
-  let randomNumber;
-  export let chosenByComputer = writable("");
-
-  const elementsSelected = () => {
-    selectByUser.set(element);
-    console.log("user : ", $selectByUser);
-    randomNumber = random(0, 2);
-    chosenByComputer.set(selection[randomNumber]);
-    console.log("computer : ", $chosenByComputer);
-
+  const selectedElements = () => {
+    selectByUser = element;
+    console.log("user : ", selectByUser);
+    
+    chosenByComputer = computerPickElement();
+    console.log("computer : ", chosenByComputer);
+    //battleGame(selectByUser, chosenByComputer);
+    
     const buttonsSelectDom = document.getElementById('buttons-select');
     buttonsSelectDom.style.display = 'none';
-
     const buttonsGameDom = document.getElementById('buttons-game');
     buttonsGameDom.style.display = 'flex';
+
+    let data = { id: 1, selectByUser: selectByUser, chosenByComputer: chosenByComputer };
+
+    // Utilisez la méthode `update` pour mettre à jour le store
+    keepSelectedElements.update((prevData) => [...prevData, data])
   }
 </script>
 
-<button on:click={() => elementsSelected()}>
+<button on:click={() => selectedElements()}>
   {element}
 </button>
-
-<!--modifier le code pour que la logique de conservation de Element et computerChose se fasse dans un autre fichier ts-->
