@@ -4,6 +4,7 @@
     import { battleGame } from '$lib/battleGame';
     import { keepScore } from '$lib/keepScore';
     import PlayAgain from './PlayAgain.svelte'
+    import { buttonImage, buttonImageAlt, buttonId } from '$lib/buttonImage';
     import { onMount } from 'svelte';
 
     let myData = keepSelectedElements;
@@ -16,13 +17,9 @@
         let battleResult: number;
 
         battleResult = battleGame(latestData.selectByUser, latestData.chosenByComputer);
-
         const newId = $keepScore.length + 1;
-
         let scoreToAdd = { id: newId, total: battleResult };
-
         keepScore.update((prevScore) => [...prevScore, scoreToAdd]);
-
         totalScore += battleResult;
     }
 
@@ -46,10 +43,6 @@
         align-items: center;
     }
 
-    button {
-        margin: 30px;
-    }
-
     .picked-element {
         display: flex;
         flex-direction: column;
@@ -57,6 +50,47 @@
         padding-left: 30px;
         padding-right: 30px;
     }
+
+    #button-red {
+      position: relative;
+      border: solid #AB6676 15px;
+      border-radius: 50%;
+      background-color: beige;
+      width: 75px;
+      height: 75px;
+      padding: 30px;
+      z-index: 0;
+    }
+
+    #button-blue {
+      position: relative;
+      border: solid #4BB9D0 15px;
+      border-radius: 50%;
+      background-color: beige;
+      width: 75px;
+      height: 75px;
+      padding: 30px;
+      z-index: 0;
+    }
+
+    #button-yellow {
+      position: relative;
+      border: solid #E57067 15px;
+      border-radius: 50%;
+      background-color: beige;
+      width: 75px;
+      height: 75px;
+      padding: 30px;
+      z-index: 0;
+    }
+
+    img {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    text-align: center;
+    z-index: 1;
+  }
 </style>
 
 <div id="battle-game">
@@ -64,7 +98,9 @@
         {#each $myData as item (item.id)}  
             <div class="picked-element">
                 <p>YOU PICKED</p>
-                <button>{item.selectByUser}</button>
+                <div id={buttonId(item.selectByUser)}>
+                    <img src={buttonImage(item.selectByUser)} alt={buttonImageAlt(item.selectByUser)}>
+                </div>
             </div>
         {/each}
         <div class="picked-element">
@@ -76,7 +112,9 @@
         {#each $myData as item (item.id)}
             <div class="picked-element">
                 <p>THE HOUSE PICKED</p>
-                <button>{item.chosenByComputer}</button>
+                <div id={buttonId(item.chosenByComputer)}>
+                    <img src={buttonImage(item.chosenByComputer)} alt={buttonImageAlt(item.chosenByComputer)}>
+                </div>
             </div>
         {/each}
     </div>
