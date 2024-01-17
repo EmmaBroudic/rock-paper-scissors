@@ -12,3 +12,17 @@ export function battleGame(userSelectedElement: any, computerSelectedElement: an
     
     return result;
 }
+
+export function battleGameResultText(score: number): string {
+    let result: string;
+
+    if (score === 0) {
+        result = "NULL";
+    } else if (score === 1) {
+        result = "YOU WIN"
+    } else {
+        result = "YOU LOSE"
+    }
+
+    return result;
+}

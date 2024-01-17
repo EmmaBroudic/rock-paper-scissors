@@ -6,6 +6,12 @@
   
     export let url = "";
 </script>
+
+<style>
+    nav {
+        display: none;
+    }
+</style>
   
 <Router {url}>
     <nav>

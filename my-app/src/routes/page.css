@@ -1,5 +1,12 @@
-#buttons {
+body {
+    all: unset;
+    background-color: #122d3a;
+    color: white;
+}
+
+main {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }

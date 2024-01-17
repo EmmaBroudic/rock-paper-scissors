@@ -1,8 +1,9 @@
 <script lang="ts">
     import { keepSelectedElements } from '../lib/keepSelectedElements';
+    import { battleGameResultText } from '$lib/battleGame';
     import { battleGame } from '$lib/battleGame';
     import { keepScore } from '$lib/keepScore';
-    import { Link } from "svelte-routing";
+    import PlayAgain from './PlayAgain.svelte'
     import { onMount } from 'svelte';
 
     let myData = keepSelectedElements;
@@ -11,38 +12,72 @@
     const currentData = $myData;
 
     if (currentData.length > 0) {
-        // Utilise le dernier élément du tableau, car c'est celui qui a été ajouté le plus récemment
         const latestData = currentData[0];
-
         let battleResult: number;
 
         battleResult = battleGame(latestData.selectByUser, latestData.chosenByComputer);
 
-        let scoreToAdd = { id: 1, total: battleResult };
+        const newId = $keepScore.length + 1;
+
+        let scoreToAdd = { id: newId, total: battleResult };
 
         keepScore.update((prevScore) => [...prevScore, scoreToAdd]);
 
-        totalScore += battleResult; // Mettre à jour le score total
+        totalScore += battleResult;
     }
 
-    function clearData() {
-        keepSelectedElements.set([]);;
-    }
-
-    // Utiliser onMount pour mettre à jour le score total lors du rendu initial
     onMount(() => {
         totalScore = $keepScore.reduce((acc, score) => acc + score.total, 0);
     });
 </script>
 
-<div>
-    <h1>Battle Game</h1>
+<style>
+    #battle-game {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-    {#each $myData as item (item.id)}
-        <button>{item.selectByUser}</button>
-        <button>{item.chosenByComputer}</button>
-        <p>{item.result}</p>
-    {/each}
-    <p>Le score total est de : {totalScore}</p>
-    <Link to="/"><button on:click={() => clearData()}>Play again</button></Link>
+    #buttons-battle {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    button {
+        margin: 30px;
+    }
+
+    .picked-element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+</style>
+
+<div id="battle-game">
+    <div id="buttons-battle">
+        {#each $myData as item (item.id)}  
+            <div class="picked-element">
+                <p>YOU PICKED</p>
+                <button>{item.selectByUser}</button>
+            </div>
+        {/each}
+        <div class="picked-element">
+            {#each $myData as item (item.id)}
+                <p>{battleGameResultText(item.result)}</p>
+            {/each}
+            <PlayAgain />
+        </div>
+        {#each $myData as item (item.id)}
+            <div class="picked-element">
+                <p>THE HOUSE PICKED</p>
+                <button>{item.chosenByComputer}</button>
+            </div>
+        {/each}
+    </div>
 </div>
