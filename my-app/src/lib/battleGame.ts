@@ -9,8 +9,6 @@ export function battleGame(userSelectedElement: any, computerSelectedElement: an
     } else {
         result -= 1;
     }
-
-    console.log(result)
-
+    
     return result;
 }

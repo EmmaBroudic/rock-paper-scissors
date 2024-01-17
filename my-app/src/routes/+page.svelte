@@ -2,6 +2,7 @@
     import { Router, Link, Route } from "svelte-routing";
     import Home from './home.svelte';
     import Battle from './battle.svelte';
+    //import { goto } from '$app/navigation';
   
     export let url = "";
 </script>
@@ -11,6 +12,9 @@
         <Link to="/">Home</Link>
         <Link to="/battle">Battle</Link>
     </nav>
+
+    <slot></slot>
+
     <div>
         <Route path="/"><Home /></Route>
         <Route path="/battle"><Battle /></Route>
