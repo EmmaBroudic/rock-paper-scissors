@@ -15,7 +15,7 @@
         justify-content: space-between;
         align-items: center;
         width: 65%;
-        top: 220px;
+        top: 215px;
         z-index: 1;
         margin: 60px;
     }

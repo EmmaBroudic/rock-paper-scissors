@@ -16,9 +16,10 @@
 
     #button-red {
       position: relative;
-      border: solid #AB6676 15px;
+      border: solid #AB6676 20px;
       border-radius: 50%;
       background-color: beige;
+      box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
       width: 75px;
       height: 75px;
       padding: 30px;
@@ -27,9 +28,10 @@
 
     #button-blue {
       position: relative;
-      border: solid #4BB9D0 15px;
+      border: solid #4BB9D0 20px;
       border-radius: 50%;
       background-color: beige;
+      box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
       width: 75px;
       height: 75px;
       padding: 30px;
@@ -38,9 +40,10 @@
 
     #button-yellow {
       position: relative;
-      border: solid #E57067 15px;
+      border: solid #E57067 20px;
       border-radius: 50%;
       background-color: beige;
+      box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
       width: 75px;
       height: 75px;
       padding: 30px;

@@ -28,33 +28,36 @@
     Cyan: #49A687 to #4A948F*/
   #button-red {
     position: relative;
-    border: solid #AB6676 15px;
+    border: solid #AB6676 20px;
     border-radius: 50%;
     background-color: beige;
-    width: 150px;
-    height: 150px;
+    box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
+    width: 170px;
+    height: 170px;
     padding: 30px;
     z-index: 0;
   }
 
   #button-blue {
     position: relative;
-    border: solid #4BB9D0 15px;
+    border: solid #4BB9D0 20px;
     border-radius: 50%;
     background-color: beige;
-    width: 150px;
-    height: 150px;
+    box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
+    width: 170px;
+    height: 170px;
     padding: 30px;
     z-index: 0;
   }
 
   #button-yellow {
     position: relative;
-    border: solid #E57067 15px;
+    border: solid #E57067 20px;
     border-radius: 50%;
     background-color: beige;
-    width: 150px;
-    height: 150px;
+    box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
+    width: 170px;
+    height: 170px;
     padding: 30px;
     z-index: 0;
   }
@@ -65,8 +68,8 @@
 
   img {
     position: absolute;
-    top: 35px;
-    left: 35px;
+    top: 42px;
+    left: 42px;
     text-align: center;
     z-index: 1;
   }

@@ -5,7 +5,6 @@
     import { battleGame } from '$lib/battleGame';
     import { Link } from "svelte-routing";
 
-    // bloc de code dans lequel le score est storé
     let myData = keepSelectedElements;
     let totalScore = 0;
 
@@ -27,9 +26,24 @@
     }
 </script>
 
-<div class="picked-element">
+<style>
+    #bloc-play {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #play-again {
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        color: red;
+    }
+</style>
+
+<div id="bloc-play">
     {#each $myData as item (item.id)}
         <p>{battleGameResultText(item.result)}</p>
     {/each}
-    <Link to="/"><button on:click={() => clearData()}>Play again</button></Link>
+    <Link to="/"><button id="play-again" on:click={() => clearData()}>PLAY AGAIN</button></Link>
 </div>
