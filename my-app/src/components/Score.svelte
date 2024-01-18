@@ -2,8 +2,10 @@
     import { keepScore } from '$lib/keepScore';
     import { onMount } from 'svelte';
 
+    // bloc de code dans lequel le score est calculé
+    
     let myData = $keepScore;
-    let totalScore = 0; // Déplacer cette déclaration en dehors de la fonction onMount
+    let totalScore = 0;
 
     onMount(() => {
         totalScore = $keepScore.reduce((acc, score) => acc + score.total, 0);
