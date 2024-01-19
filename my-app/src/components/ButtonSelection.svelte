@@ -4,14 +4,11 @@
   import { keepSelectedElements } from '$lib/keepSelectedElements';
   import { keepScore } from '$lib/keepScore';
   import { buttonImage, buttonImageAlt, buttonId } from '$lib/buttonImage';
-  import { onMount } from 'svelte';
 
   let selectByUser: string;
   let chosenByComputer: string;
   export let element: string;
-  let totalScore: number = 0;
-  let scoreTotal = keepScore;
-  const currentData = $scoreTotal;
+  let totalScore = 0;
 
   const selectedElements = () => {
       selectByUser = element;
@@ -19,23 +16,17 @@
       chosenByComputer = computerPickElement();
       console.log("computer : ", chosenByComputer);
 
-      let battleResult = battleGame(selectByUser, chosenByComputer);
-
-      let data = { id: 1, selectByUser: selectByUser, chosenByComputer: chosenByComputer, result: battleResult};
+      let data = { id: 1, selectByUser: selectByUser, chosenByComputer: chosenByComputer, result: battleGame(selectByUser, chosenByComputer)};
       keepSelectedElements.update((prevData) => [...prevData, data]);
 
-      if (currentData.length > 0) {
-        const latestData = currentData[currentData.length - 1];
-        let totalBattles = latestData.total += battleResult;
-        let scoreToAdd = { id: 1, total: totalBattles };
-        keepScore.update((prevScore) => [...prevScore, scoreToAdd]);
-        console.log(totalBattles);
-    }
+      let battleResult: number;
+
+      battleResult = battleGame(selectByUser, chosenByComputer);
+      const newId = $keepScore.length + 1;
+      let scoreToAdd = { id: newId, total: battleResult };
+      keepScore.update((prevScore) => [...prevScore, scoreToAdd]);
+      totalScore += battleResult;
   }
-  /*onMount(() => {
-        totalScore = $keepScore.reduce((acc: any, score: any) => acc + score.total, 0);
-        console.log("score total :", totalScore);
-  });*/
 </script>
 
 <style>
