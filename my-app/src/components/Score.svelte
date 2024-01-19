@@ -13,15 +13,21 @@
 </script>
 
 <style>
-     #bloc-score {
+    @font-face {
+        font-family: 'Barlow';
+        src: url('src/fonts/BarlowSemiCondensed-Bold.ttf') format('truetype');
+    }
+
+    #bloc-score {
         background-color: white;
+        font-family: 'Barlow';
         color: grey;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding:30px;
         border-radius: 10px;
-     }
+    }
 </style>
 
 <div id="bloc-score">

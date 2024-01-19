@@ -13,13 +13,14 @@
         width: 65%;
         top: 215px;
         z-index: 1;
-        margin: 60px;
+        margin: 50px;
     }
 
     img {
         position: relative;
+        width: 22%;
         z-index: 0;
-        margin: 30px;
+        margin-top: 80px;
     }
 </style>
 

@@ -3,15 +3,23 @@
 </script>
 
 <style>
+    @font-face {
+        font-family: 'Barlow';
+        src: url('src/fonts/BarlowSemiCondensed-Bold.ttf') format('truetype');
+    }
+
     #title {
         border: 2px solid white;
+        font-family: 'Barlow';
+        font-size: 14pt;
         border-radius: 20px;
         width: 60%;
+        height: 180px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding: 30px;
-        margin: 30px;
+        padding: 10px;
+        margin: 10px;
     }
 
     h1 {

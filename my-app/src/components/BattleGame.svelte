@@ -10,12 +10,12 @@
 
     setTimeout(() => {
         showPlay = true;
-    }, 3000);
+    }, 2000);
 
     setTimeout(() => {
         showComputer = true;
         computerShadow = false;
-    }, 1500);
+    }, 1000);
 
 </script>
 

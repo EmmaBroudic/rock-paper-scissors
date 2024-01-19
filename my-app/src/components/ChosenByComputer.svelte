@@ -6,6 +6,16 @@
 </script>
 
 <style>
+    @font-face {
+      font-family: 'Barlow';
+      src: url('src/fonts/BarlowSemiCondensed-Bold.ttf') format('truetype');
+    }
+
+    p {
+      font-family: 'Barlow';
+      font-size: 16pt;
+    }
+
     .picked-element {
         display: flex;
         flex-direction: column;

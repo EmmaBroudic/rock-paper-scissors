@@ -41,8 +41,8 @@
     border-radius: 50%;
     background-color: beige;
     box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     padding: 30px;
     z-index: 0;
   }
@@ -53,8 +53,8 @@
     border-radius: 50%;
     background-color: beige;
     box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     padding: 30px;
     z-index: 0;
   }
@@ -65,8 +65,8 @@
     border-radius: 50%;
     background-color: beige;
     box-shadow: inset 0px 10px 0px 0px hsl(214, 10%, 86%);
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     padding: 30px;
     z-index: 0;
   }
@@ -77,8 +77,8 @@
 
   img {
     position: absolute;
-    top: 42px;
-    left: 42px;
+    top: 30px;
+    left: 28px;
     text-align: center;
     z-index: 1;
   }
