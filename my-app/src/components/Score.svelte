@@ -1,15 +1,12 @@
 <script lang="ts">
     import { keepScore } from '$lib/keepScore';
-    import { onMount } from 'svelte';
 
     // bloc de code dans lequel le score est calculé
     
-    let myData = $keepScore;
-    let totalScore = 0;
+    let dataScore = keepScore;
+    /*let dataScoreLastest = (dataScore.length) - 1;
 
-    onMount(() => {
-        totalScore = $keepScore.reduce((acc, score) => acc + score.total, 0);
-    });
+    const latestData = dataScore[dataScoreLastest];*/
 </script>
 
 <style>
@@ -23,13 +20,16 @@
         border-radius: 10px;
      }
 </style>
-
+<!--faire un each-->
 <div id="bloc-score">
-    {#if myData.length > 0}
+    {#each $dataScore as item (item.id)}
         <p>Score</p>
-        <p>{totalScore}</p>
+        <p>{item.total}</p>
+    {/each}
+    <!--{#if dataScore.length > 0}
+        <p>Score</p>
+        <p>{latestData.total}</p>
     {:else}
         <p>Score</p>
-        <p>0</p>
-    {/if}
+    {/if}-->
 </div>

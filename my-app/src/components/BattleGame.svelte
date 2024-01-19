@@ -29,8 +29,7 @@
 
     #user, #play, #computer {
         margin: 30px;
-        /*opacity: 0;*/
-        transition: opacity 0.5s ease; /* Add a transition for a smooth fade-in effect */
+        transition: opacity 0.5s ease;
     }
 
     #shadow {

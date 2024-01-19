@@ -1,10 +1,6 @@
 <script lang="ts">
-    import ButtonsSelectionBloc from '../components/ButtonsSelectionBloc.svelte';
-    import { keepSelectedElements } from '$lib/keepSelectedElements';
-    import Header from '../components/Header.svelte';
-    import './page.css'
-
-    let myData = keepSelectedElements;
+    import ButtonsSelectionBloc from "../components/ButtonsSelectionBloc.svelte";
+    import "./page.css";
 </script>
 
 <style>
@@ -27,12 +23,9 @@
     }
 </style>
 
-<body>
-    <main>
-        <Header />
-        <div id="button-selection">
-            <ButtonsSelectionBloc />
-        </div>
-        <img src="src/images/bg-triangle.svg" alt="triangle">
-    </main>
-</body>
+<div id="button-selection">
+    <ButtonsSelectionBloc />
+</div>
+<img src="src/images/bg-triangle.svg" alt="triangle" />
+
+

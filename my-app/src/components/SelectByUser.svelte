@@ -59,7 +59,6 @@
   }
 </style>
 
-
 {#each $myData as item (item.id)}  
     <div class="picked-element">
         <p>YOU PICKED</p>

@@ -1,12 +1,5 @@
 <script lang="ts">
-    import BattleGame from '../components/BattleGame.svelte'
-    import Header from '../components/Header.svelte';
-    import './page.css'
+    import BattleGame from "../components/BattleGame.svelte";
 </script>
 
-<body>
-    <main>
-        <Header />
-        <BattleGame />
-    </main>
-</body>
+<BattleGame />

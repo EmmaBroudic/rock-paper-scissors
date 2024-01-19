@@ -1,28 +1,35 @@
-<script>
-    import { Router, Link, Route } from "svelte-routing";
-    import Home from './home.svelte';
-    import Battle from './battle.svelte';
-    //import { goto } from '$app/navigation';
-  
-    export let url = "";
+<script lang="ts">
+    import './page.css';
+    import Home from "./home.svelte";
+    import Header from '../components/Header.svelte';
+    import Battle from "./battle.svelte";
+    import { keepSelectedElements } from '$lib/keepSelectedElements';
+
+    let myData = keepSelectedElements;
+    let selectByUser = "";
+
+    if ($myData.length > 0) {
+        const latestData = $myData[0];
+        selectByUser = latestData.selectByUser;
+        console.log("home", selectByUser);
+    }
 </script>
 
 <style>
-    nav {
-        display: none;
+    #bloc-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 </style>
-  
-<Router {url}>
-    <nav>
-        <Link to="/">Home</Link>
-        <Link to="/battle">Battle</Link>
-    </nav>
 
-    <slot></slot>
-
-    <div>
-        <Route path="/"><Home /></Route>
-        <Route path="/battle"><Battle /></Route>
-    </div>
-</Router>
+<div id="bloc-main">
+    {#if $myData.length > 0}
+        <Header />
+        <Battle />
+    {:else}
+        <Header />
+        <Home />
+    {/if}
+</div>

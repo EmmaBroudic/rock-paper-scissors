@@ -2,12 +2,16 @@
   import { computerPickElement } from '../lib/utils';
   import { battleGame } from '$lib/battleGame';
   import { keepSelectedElements } from '$lib/keepSelectedElements';
+  import { keepScore } from '$lib/keepScore';
   import { buttonImage, buttonImageAlt, buttonId } from '$lib/buttonImage';
-  import { Link } from "svelte-routing";
+  import { onMount } from 'svelte';
 
   let selectByUser: string;
   let chosenByComputer: string;
   export let element: string;
+  let totalScore: number = 0;
+  let scoreTotal = keepScore;
+  const currentData = $scoreTotal;
 
   const selectedElements = () => {
       selectByUser = element;
@@ -15,9 +19,23 @@
       chosenByComputer = computerPickElement();
       console.log("computer : ", chosenByComputer);
 
-      let data = { id: 1, selectByUser: selectByUser, chosenByComputer: chosenByComputer, result: battleGame(selectByUser, chosenByComputer)};
+      let battleResult = battleGame(selectByUser, chosenByComputer);
+
+      let data = { id: 1, selectByUser: selectByUser, chosenByComputer: chosenByComputer, result: battleResult};
       keepSelectedElements.update((prevData) => [...prevData, data]);
+
+      if (currentData.length > 0) {
+        const latestData = currentData[currentData.length - 1];
+        let totalBattles = latestData.total += battleResult;
+        let scoreToAdd = { id: 1, total: totalBattles };
+        keepScore.update((prevScore) => [...prevScore, scoreToAdd]);
+        console.log(totalBattles);
+    }
   }
+  /*onMount(() => {
+        totalScore = $keepScore.reduce((acc: any, score: any) => acc + score.total, 0);
+        console.log("score total :", totalScore);
+  });*/
 </script>
 
 <style>
@@ -76,9 +94,7 @@
 </style>
 
 
-<Link to="battle">
-    <button id={buttonId(element)} on:click={() => selectedElements()}>
-        <p>{element}</p>
-        <img src={buttonImage(element)} alt={buttonImageAlt(element)}>
-    </button>
-</Link>
+<button id={buttonId(element)} on:click={() => selectedElements()}>
+    <p>{element}</p>
+    <img src={buttonImage(element)} alt={buttonImageAlt(element)}>
+</button>
